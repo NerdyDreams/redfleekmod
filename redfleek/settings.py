@@ -78,24 +78,24 @@ WSGI_APPLICATION = "redfleek.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
 DATABASES = {
-
-    'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME':'codebrewmaster$redfleek',
-        'USER':'codebrewmaster',
-        'PASSWORD':'redfleekmaryam3#',
-        'HOST':'codebrewmaster.mysql.pythonanywhere-services.com',
-        'PORT':'3306',
-        }
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
+}
+
+# DATABASES = {
+
+#     'default': {
+#         'ENGINE':'django.db.backends.mysql',
+#         'NAME':'codebrewmaster$redfleek',
+#         'USER':'codebrewmaster',
+#         'PASSWORD':'redfleekmaryam3#',
+#         'HOST':'codebrewmaster.mysql.pythonanywhere-services.com',
+#         'PORT':'3306',
+#         }
+#     }
 
 
 # Password validation
@@ -133,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

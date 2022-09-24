@@ -6,7 +6,7 @@ from .forms import ReviewForm, profReviewForm, becomeredreviewerform
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-from django.core.exceptions import ValidationError,ObjectDoesNotExist
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 
 
 # Create your views here.
@@ -92,16 +92,20 @@ def deletereview(request, review_id):
     return redirect("detail", review.movie.id)
 
 
-
 # PROFESSIONAL REVIEWS
 def profreview(request, movie_id):
-        try:
-            movie = get_object_or_404(Movie, pk=movie_id)
-            profreview = ProfReview.objects.get(movie=movie)
-            return render(request, "profreview.html", {"movie": movie, "profreview": profreview})
-        except ObjectDoesNotExist:
-            return render(request, "profreview.html", {"movie": movie, "error": "No Red Review for this film yet!"})
-
+    try:
+        movie = get_object_or_404(Movie, pk=movie_id)
+        profreview = ProfReview.objects.get(movie=movie)
+        return render(
+            request, "profreview.html", {"movie": movie, "profreview": profreview}
+        )
+    except ObjectDoesNotExist:
+        return render(
+            request,
+            "profreview.html",
+            {"movie": movie, "error": "No Red Review for this film yet!"},
+        )
 
 
 @staff_member_required
@@ -111,7 +115,7 @@ def createprofreview(request, movie_id):
 
     if request.method == "GET":
         return render(
-            request, "createprofreview.html", {"form": ReviewForm(), "movie": movie}
+            request, "createprofreview.html", {"form": profReviewForm(), "movie": movie}
         )
     else:
         try:
